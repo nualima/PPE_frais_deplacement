@@ -6,7 +6,10 @@ include "header.php";
 
 echo("hello world");
 
-    
+
+include "./formulaire.php";
+
+echo 'Première visite ? <a href="./inscription.php"> Inscrivez vous !</a> ';
 
 
 ?>
