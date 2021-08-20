@@ -26,3 +26,5 @@ if (isset($_POST['identifiant'], $_POST['password']) && $_POST['identifiant'] !=
     exit();
   }
 }
+        
+?>

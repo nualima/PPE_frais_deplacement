@@ -17,3 +17,11 @@ if (isset($_SESSION)) {
   echo '<a href="./deconnection.php" target="_self"> <input type="button" value="Deconnection"> </a>
     ';
 }
+
+?>
+si vous souhaitez changer vos informations , cliquez ici
+<form action='post_formulaire.php' methode='GET'>
+  <p>
+    <input type="submit" name="valider"/>
+  </p>
+</form>
