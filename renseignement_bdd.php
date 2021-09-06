@@ -8,3 +8,4 @@ if (isset($_POST['identifiant'], $_POST['password']) && $_POST['identifiant'] !=
     $q = $bdd->prepare('SELECT COUNT(*) FROM `adherents` WHERE identifiant=:identifiant');
     $q->bindValue('identifiant', $_POST['identifiant']);
     $q->execute();
+    ?>

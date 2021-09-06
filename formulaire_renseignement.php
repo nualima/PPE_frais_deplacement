@@ -21,9 +21,3 @@
     </p>
 </form>
 
-nom 
-prenom
-date de Naissance
-numéro de telephone
-Pays
-Ville
