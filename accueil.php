@@ -4,13 +4,21 @@
 
 // print_r($_POST);
 
-// session_start();
+session_start();
 // print_r($_SESSION);
 
-if (isset($_SESSION)) {
- $user  =$_POST['identifiant'] ;
+if (isset($_SESSION) && !empty($_SESSION)) {
+  $identifiant = $_SESSION['identifiant'];
 
-  echo '<p> bonjour ' . $user . ' ! </p>';
+  $bdd = new PDO('mysql:host=localhost;dbname=ppe_frais', 'root', '');
+  $requete = $bdd->prepare("SELECT * FROM `adherents` WHERE identifiant=:identifiant");
+  $requete->bindParam(':identifiant', $identifiant, PDO::PARAM_STR);
+  $requete->execute();
+  $adherent = $requete->fetchObject();
+  // var_dump($adherent);
+
+
+  echo '<p> bonjour ' . $adherent->prenom . ' ! </p>';
   //     echo '<form>
   // <input type="button" value="Deconnection" onclick="history.go(-1)">
   // </form>';
@@ -19,9 +27,9 @@ if (isset($_SESSION)) {
 }
 
 ?>
-si vous souhaitez changer vos informations , cliquez ici
+<!-- si vous souhaitez changer vos informations , cliquez ici
 <form action='post_formulaire.php' methode='GET'>
   <p>
-    <input type="submit" name="valider"/>
-  </p>
+    <input type="submit" name="valider" />
+  </p> -->
 </form>

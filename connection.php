@@ -1,17 +1,19 @@
 <?php
 
+session_start();
+
 if (isset($_POST['identifiant'], $_POST['password'])) {
 
     $bdd = new PDO('mysql:host=localhost;dbname=ppe_frais', 'root', '');
-    $requete = $bdd->prepare("SELECT * FROM `ppe_connection` WHERE identifiant=:identifiant AND password=:password");
+    $requete = $bdd->prepare("SELECT * FROM `adherents` WHERE identifiant=:identifiant AND password=:password");
     $requete->bindParam(':identifiant', $_POST['identifiant'], PDO::PARAM_STR);
     $requete->bindParam(':password', $_POST['password'], PDO::PARAM_STR);
     $requete->execute();
     $result = $requete->fetchObject();
-    $_SESSION['pseudo'] = $_POST['identifiant'];
+    $_SESSION['identifiant'] = $_POST['identifiant'];
  
     if ($result) {
-        include('./accueil.php');
+        header('Location: /accueil.php');
     } else {
         echo "<div class='alert alert-danger' role='alert'>
         <p>L'identifiant ou le mot de passe ne sont pas valide:</p> <a href='#' class='alert-link' value='Retour'

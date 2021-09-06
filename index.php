@@ -4,8 +4,9 @@ include "header.php";
 
 
 include "./formulaire.php";
+// include "./create_user.php";
 
-echo 'Première visite ? <a href="./inscription.php"> Inscrivez vous !</a> ';
+echo 'Première visite ? <a href="./formulaire_inscription.php"> Inscrivez vous !</a> ';
 
 
 ?>
