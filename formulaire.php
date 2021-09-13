@@ -17,9 +17,9 @@
         </div>
 
         <div class="checkbox mb-3">
-            <label>
+            <!-- <label>
                 <input type="checkbox" value="remember-me"> Remember me
-            </label>
+            </label> -->
         </div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">se connecter </button>
     </form>

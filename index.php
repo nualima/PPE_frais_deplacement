@@ -9,13 +9,13 @@
         include "header.php";
         echo "<header> </header>";
 
-        echo "<div id='form_index'>";
+        echo "<div class='form_index'>";
 
         include "./formulaire.php";
         // include "./create_user.php";
 
 
-        echo 'Première visite ? <a href="./formulaire_inscription.php"> Inscrivez vous !</a> ';
+        echo 'Première visite ? <a class="inscrivez-vous" href="./formulaire_inscription.php"> Inscrivez vous !</a> ';
 
         echo "</div>";
         ?>

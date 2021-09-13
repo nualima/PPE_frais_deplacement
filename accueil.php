@@ -1,6 +1,7 @@
 <!-- cette page sera la premiere page sur laquelle le client tombera lorsqu'il se sera connécté ou inscrit. -->
 
 <?php
+include './header.php';
 
 // print_r($_POST);
 
@@ -10,7 +11,7 @@ session_start();
 if (isset($_SESSION) && !empty($_SESSION)) {
   $identifiant = $_SESSION['identifiant'];
 
-  $bdd = new PDO('mysql:host=localhost;dbname=ppe_frais', 'root', '');
+  $bdd = new PDO('mysql:host=localhost;dbname=m2l', 'root', '');
   $requete = $bdd->prepare("SELECT * FROM `adherents` WHERE identifiant=:identifiant");
   $requete->bindParam(':identifiant', $identifiant, PDO::PARAM_STR);
   $requete->execute();
@@ -18,12 +19,12 @@ if (isset($_SESSION) && !empty($_SESSION)) {
   // var_dump($adherent);
 
 
-  echo '<p> bonjour ' . $adherent->prenom . ' ! </p>';
+  include './profil.php';
   //     echo '<form>
   // <input type="button" value="Deconnection" onclick="history.go(-1)">
   // </form>';
-  echo '<a href="./deconnection.php" target="_self"> <input type="button" value="Deconnection"> </a>
-    ';
+  // echo '<a href="./deconnection.php" target="_self"> <input type="button" value="Deconnection"> </a>
+  //   ';
 }
 
 ?>
@@ -32,4 +33,4 @@ if (isset($_SESSION) && !empty($_SESSION)) {
   <p>
     <input type="submit" name="valider" />
   </p> -->
-</form>
+</form> -->
