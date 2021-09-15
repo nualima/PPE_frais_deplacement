@@ -1,4 +1,4 @@
-<form action='accueil.php' methode='GET'>
+<form action='traitement_formulaire.php' methode='POST'>
     <p>
         veuillez saisir les information suivantes:
         </br></br>
@@ -28,5 +28,6 @@
     <p>Ligue Sportive : <input type="text" name="Ligue" required="required" /></p>
 
     <input type="submit" name="valider" />
+
     </p>
 </form>
