@@ -1,10 +1,13 @@
 <?php
+include './header.php';
 ?>
+
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
+
 
 <div class="container emp-profile">
     <form method="post">
@@ -21,7 +24,7 @@
             <div class="col-md-6">
                 <div class="profile-head">
                     <?php
-                    echo '<h5> Bonjour ' . $adherent->prenom . ' ! </h5>';
+                    // echo '<h5> Bonjour ' . $adherent->prenom . ' ! </h5>';
 
                     ?>
                     <h6>
@@ -35,7 +38,7 @@
                 </div>
             </div>
             <div class="col-md-2">
-                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Retour" />
             </div>
         </div>
         <div class="row">
@@ -57,43 +60,43 @@
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-2">
                                 <label>User Id</label>
                             </div>
                             <div class="col-md-6">
-                                <p>Kshiti123</p>
-                            </div>
+                            <input id="floatingInput" name="identifiant" class="form-control" placeholder="">
+                            </div>                           
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-2">
                                 <label>Name</label>
                             </div>
                             <div class="col-md-6">
-                                <p>Kshiti Ghelani</p>
+                            <input id="floatingInput" name="identifiant" class="form-control" placeholder="">                           
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-2">
                                 <label>Email</label>
                             </div>
                             <div class="col-md-6">
-                                <p>kshitighelani@gmail.com</p>
+                            <input id="floatingInput" name="identifiant" class="form-control" placeholder="">                           
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-2">
                                 <label>Phone</label>
                             </div>
                             <div class="col-md-6">
-                                <p>123 456 7890</p>
+                            <input id="floatingInput" name="identifiant" class="form-control" placeholder="">                           
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-2">
                                 <label>Profession</label>
                             </div>
                             <div class="col-md-6">
-                                <p>Web Developer and Designer</p>
+                            <input id="floatingInput" name="identifiant" class="form-control" placeholder="">                           
                             </div>
                         </div>
                     </div>
