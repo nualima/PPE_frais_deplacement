@@ -10,7 +10,7 @@ include './header.php';
 
 
 <div class="container emp-profile">
-    <form action="history.go(-1)" method="post">
+    <form action="./accueil.php" method="post">
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
@@ -40,7 +40,7 @@ include './header.php';
                 </div>
             </div>
             <div class="col-md-2">
-                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Retour" onclick='history.go(-1)'/>
+                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Retour" />
             </div>
         </div>
     </form>
@@ -141,6 +141,7 @@ include './header.php';
                                 <p>Your detail description</p>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>

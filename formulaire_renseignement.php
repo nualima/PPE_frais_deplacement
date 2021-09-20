@@ -79,14 +79,17 @@
                         </div>
                         <div class="row infos">
                             <div class="col-md-2">
-                                <label>Ligue :</label>
+                                <label>Ligue :</label>  
                             </div>
                             <div class="col-md-6">
                             <input id="floatingInput" name="ligue" class="form-control" placeholder="123">                           
                             </div>
                         </div>
+
                     
                     </div>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">se connecter </button>
+
                 </div>
             </div>
         </div>
