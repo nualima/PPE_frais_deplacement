@@ -10,7 +10,7 @@ include './header.php';
 
 
 <div class="container emp-profile">
-    <form method="post">
+    <form action="history.go(-1)" method="post">
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
@@ -38,28 +38,20 @@ include './header.php';
                 </div>
             </div>
             <div class="col-md-2">
-                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Retour" />
+                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Retour" onclick='history.go(-1)'/>
             </div>
         </div>
+    </form>
+    <form method="post">
         <div class="row">
             <div class="col-md-4">
-                <div class="profile-work">
-                    <p>WORK LINK</p>
-                    <a href="">Website Link</a><br />
-                    <a href="">Bootsnipp Profile</a><br />
-                    <a href="">Bootply Profile</a>
-                    <p>SKILLS</p>
-                    <a href="">Web Designer</a><br />
-                    <a href="">Web Developer</a><br />
-                    <a href="">WordPress</a><br />
-                    <a href="">WooCommerce</a><br />
-                    <a href="">PHP, .Net</a><br />
-                </div>
+               
+            
             </div>
             <div class="col-md-8">
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="row">
+                        <div class="row infos">
                             <div class="col-md-2">
                                 <label>User Id</label>
                             </div>
@@ -67,7 +59,7 @@ include './header.php';
                             <input id="floatingInput" name="identifiant" class="form-control" placeholder="">
                             </div>                           
                         </div>
-                        <div class="row">
+                        <div class="row infos">
                             <div class="col-md-2">
                                 <label>Name</label>
                             </div>
@@ -75,7 +67,7 @@ include './header.php';
                             <input id="floatingInput" name="identifiant" class="form-control" placeholder="">                           
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row infos">
                             <div class="col-md-2">
                                 <label>Email</label>
                             </div>
@@ -83,7 +75,7 @@ include './header.php';
                             <input id="floatingInput" name="identifiant" class="form-control" placeholder="">                           
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row infos">
                             <div class="col-md-2">
                                 <label>Phone</label>
                             </div>
@@ -91,7 +83,7 @@ include './header.php';
                             <input id="floatingInput" name="identifiant" class="form-control" placeholder="">                           
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row infos">
                             <div class="col-md-2">
                                 <label>Profession</label>
                             </div>
@@ -101,7 +93,7 @@ include './header.php';
                         </div>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="row">
+                        <div class="row infos">
                             <div class="col-md-6">
                                 <label>Experience</label>
                             </div>
@@ -109,7 +101,7 @@ include './header.php';
                                 <p>Expert</p>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row infos">
                             <div class="col-md-6">
                                 <label>Hourly Rate</label>
                             </div>
@@ -117,7 +109,7 @@ include './header.php';
                                 <p>10$/hr</p>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row infos">
                             <div class="col-md-6">
                                 <label>Total Projects</label>
                             </div>
@@ -125,7 +117,7 @@ include './header.php';
                                 <p>230</p>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row infos">
                             <div class="col-md-6">
                                 <label>English Level</label>
                             </div>
@@ -133,7 +125,7 @@ include './header.php';
                                 <p>Expert</p>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row infos">
                             <div class="col-md-6">
                                 <label>Availability</label>
                             </div>
@@ -141,7 +133,7 @@ include './header.php';
                                 <p>6 months</p>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row infos">
                             <div class="col-md-12">
                                 <label>Your Bio</label><br />
                                 <p>Your detail description</p>

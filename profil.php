@@ -7,7 +7,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container emp-profile">
-    <form method="post">
+    <form action="./edit_profil.php" method="post">
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="col-md-2">
-                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" onclick="window.location.href = './edit_profil.php';" />
             </div>
         </div>
         <div class="row">
