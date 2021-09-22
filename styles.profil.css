@@ -124,3 +124,17 @@ body {
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
+#ndf {
+    height: auto;
+    align-self: center;
+    width: 50%;
+    margin-left: 50px;
+}
+
+#ndf .btn {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-bottom-width: 10px;
+    border-top-width: 10px;
+}

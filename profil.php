@@ -31,7 +31,7 @@
                     </h6>
                     <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> -->
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        
+
                     </ul>
                 </div>
             </div>
@@ -45,19 +45,19 @@
                     <?php
                     $timestamp = strtotime($adherent->birthday);
                     $adherent->birthday = date("d-m-Y", $timestamp);
-                    echo'
+                    echo '
                     
                     <p  class="a">nom complet :</p>
-                    <p>'. $adherent->nom . ' ' . $adherent->prenom . '</p>
+                    <p>' . $adherent->nom . ' ' . $adherent->prenom . '</p>
 
                     <p  class="a">date de naissance :</p>
                     <p>' . $adherent->birthday . '</p>
 
                     <p  class="a">Adresse :</p>
-                    <p>' . $adherent->adresse . ' , '. strtoupper($adherent->ville) . '<p>
+                    <p>' . $adherent->adresse . ' , ' . strtoupper($adherent->ville) . '<p>
                     
                     <p  class="a">adresse mail :</p>
-                    <p>' . $adherent->mail .'</p>
+                    <p>' . $adherent->mail . '</p>
 
                     <p  class="a">n° ligue :</p>
                     <p>' . $adherent->ligue . '</p>
@@ -66,9 +66,17 @@
                     <p>' . $adherent->licence . '</p>
                     '
                     ?>
-                    
+
                 </div>
+
+
             </div>
+            <div id="ndf">
+                <button class="w-100 btn btn-lg btn-warning ndf" type="submit">se connecter </button>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">se connecter </button>
+
+            </div>
+            
             <!-- <div class="col-md-8">
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">

@@ -20,7 +20,7 @@ session_start();
     } else {
         
 
-    $requete = $bdd->prepare("UPDATE INTO `adherents` WHERE identifiant=:identifiant AND password=:password  VALUES('', '', '',  :nom, :prenom, :birthday, :mail, :numero, :adresse, :ville, :licence, :ligne, 1 ");
+    $requete = $bdd->prepare("UPDATE INTO `adherents` WHERE identifiant=:identifiant AND password=:password VALUES('', '', '',  :nom, :prenom, :birthday, :mail, :numero, :adresse, :ville, :licence, :ligne, 1 ");
     $requete->bindParam(':identifiant', $_SESSION['identifiant'], PDO::PARAM_STR);
     $requete->bindParam(':password', $_SESSION['password'], PDO::PARAM_STR);
     $requete->bindParam(':nom', $_POST['nom'], PDO::PARAM_STR);
