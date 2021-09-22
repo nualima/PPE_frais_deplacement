@@ -19,14 +19,12 @@ if (isset($_POST['identifiant'], $_POST['password'])) {
             // var_dump($result->validation);
 
         header('Location: /accueil.php');
-        // echo "1";
 
 
         } 
         if ($result->validation == 0){
             // var_dump($result->validation);
             header('Location: /formulaire_renseignement.php');
-            // echo "2";
         }
     } else {
         echo "<div class='alert alert-danger' role='alert'>

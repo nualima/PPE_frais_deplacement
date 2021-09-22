@@ -5,7 +5,7 @@
 
 <div class="container emp-profile">
     
-    <form method="post">
+    <form action="./traitement_formulaire.php" method="post">
         <div class="row">
             
             <div class="col-md-8">
@@ -71,10 +71,10 @@
                         </div>
                         <div class="row infos">
                             <div class="col-md-2">
-                                <label>License :</label>
+                                <label>Licence :</label>
                             </div>
                             <div class="col-md-6">
-                            <input id="floatingInput" name="license" class="form-control" placeholder="123">                           
+                            <input id="floatingInput" name="licence" class="form-control" placeholder="123">                           
                             </div>
                         </div>
                         <div class="row infos">
