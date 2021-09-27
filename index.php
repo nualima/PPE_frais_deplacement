@@ -15,7 +15,7 @@
         // include "./create_user.php";
 
 
-        echo 'Première visite ? <a class="inscrivez-vous" href="./formulaire_inscription.php"> Inscrivez vous !</a> ';
+        echo ' <p class="white">Première visite ? <a class="inscrivez-vous" href="./formulaire_inscription.php"> Inscrivez vous !</a></p> ';
 
         echo "</div>";
         ?>

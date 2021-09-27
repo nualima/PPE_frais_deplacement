@@ -1,0 +1,165 @@
+body {
+    text-align: center;
+    font-size: 21px !important;
+    font-family: sans-serif !important;
+    transform: scaleX(1.03222);
+}
+
+.claire {
+    background-color: white;
+}
+
+.container {
+    max-width: 1080px !important;
+}
+
+img {
+    height: 100px;
+    width: auto;
+    margin: 25px;
+}
+
+textarea {
+    resize: none !important;
+}
+
+.taille {
+    width: 7%;
+}
+
+#bordure {
+    background-color: #ff6684;
+    height: 7em;
+    padding-top: 1%;
+    color: white;
+    margin-bottom: 20px;
+}
+
+#purple {
+    color: #ff6684;
+}
+
+p {
+    font-size: large;
+}
+
+.eval {
+    width: -webkit-fill-available;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.eval_header {
+    display: flex;
+    flex-direction: column;
+    /* p {
+        margin: 0;
+    } */
+}
+
+.thead {
+    width: 100%;
+}
+
+.rouge {
+    background-color: #ff4c4c6e;
+}
+
+.orange {
+    background-color: #ffa500a1;
+}
+
+.jaune {
+    background: #ffff7f;
+}
+
+.vert {
+    background-color: #c0ffc0;
+}
+
+td {
+    padding: 4px;
+    background-color: #80808012;
+    border: solid 1px black;
+    text-align: left;
+}
+
+#footer {
+    flex-direction: row;
+    display: flex;
+}
+
+.form-control,
+.input-group-text {
+    border: 1px solid black !important;
+}
+
+.case {
+    text-align: center !important;
+    padding-left: 4px !important;
+}
+
+#comment {
+    text-align: left;
+}
+
+.input-group-text,
+.eval_header,
+#comment {
+    font-weight: bold !important;
+}
+
+textarea {
+    margin-top: 0 !important;
+    border: inset;
+}
+
+#footer {
+    text-align: center;
+    margin-top: 25px;
+}
+
+label {
+    display: inherit;
+}
+
+label,
+input[type='checkbox'],
+input[type='radio'],
+.case {
+    cursor: pointer;
+}
+
+td.selected {
+    background-color: #ff6684;
+    color: white;
+}
+
+.bloc-signature {
+    border: 1px dashed black;
+}
+
+#formulaire {
+    padding-bottom: 100px;
+}
+
+.bloc-validation {
+    margin-top: 20px;
+    /* button {
+        font-size: 1.3rem;
+    } */
+}
+
+.error-alert {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.try-again {
+    margin-top: 20px;
+}
+
+input:disabled {
+    background: #80808026 !important;
+    color: grey;
+}

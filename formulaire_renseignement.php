@@ -47,10 +47,10 @@
                         </div>
                         <div class="row infos">
                             <div class="col-md-2">
-                                <label>Phone</label>
+                                <label>numero</label>
                             </div>
                             <div class="col-md-6">
-                            <input id="floatingInput" name="phone" class="form-control" placeholder="Ex: 0768716784">                           
+                            <input id="floatingInput" name="numero" class="form-control" placeholder="Ex: 0768716784">                           
                             </div>
                         </div>
                         <div class="row infos">
@@ -88,7 +88,7 @@
 
                     
                     </div>
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">se connecter </button>
+                    <button class="w-25 btn btn-lg btn-primary" type="submit">se connecter </button>
 
                 </div>
             </div>

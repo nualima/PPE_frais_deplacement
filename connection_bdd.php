@@ -1,8 +1,3 @@
-
-<?php
-include './header.php';
-
-
 session_start();
 
 if (isset($_SESSION) && !empty($_SESSION)) {
@@ -14,9 +9,3 @@ if (isset($_SESSION) && !empty($_SESSION)) {
   
   $requete->execute();
   $adherent = $requete->fetchObject();
-
-
-  include './profil.php';
-}
-
-?>

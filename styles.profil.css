@@ -138,3 +138,9 @@ body {
     border-bottom-width: 10px;
     border-top-width: 10px;
 }
+
+.white {
+    color: white;
+}
+
+.edit_btn {}

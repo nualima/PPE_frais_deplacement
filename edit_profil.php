@@ -1,4 +1,15 @@
 <?php
+session_start();
+
+if (isset($_SESSION) && !empty($_SESSION)) {
+  $identifiant = $_SESSION['identifiant'];
+
+  $bdd = new PDO('mysql:host=localhost;dbname=m2l', 'root', '');
+  $requete = $bdd->prepare("SELECT * FROM `adherents` WHERE identifiant=:identifiant");
+  $requete->bindParam(':identifiant', $identifiant, PDO::PARAM_STR);
+  
+  $requete->execute();
+  $adherent = $requete->fetchObject();
 include './header.php';
 ?>
 
@@ -26,17 +37,10 @@ include './header.php';
             <div class="col-md-6">
                 <div class="profile-head">
                     <?php
-                    // echo '<h5> Bonjour ' . $adherent->prenom . ' ! </h5>';
+                    echo '<h5> Bonjour ' . $adherent->prenom . ' ! </h5>';
 
                     ?>
-                    <h6>
-                        Web Developer and Designer
-                    </h6>
-                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
-                        <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                        </li>
-                       
+                   
                 </div>
             </div>
             <div class="col-md-2">
@@ -44,7 +48,7 @@ include './header.php';
             </div>
         </div>
     </form>
-    <form method="post">
+    <form action="traitement_formulaire.php" method="post">
         <div class="row">
             <div class="col-md-4">
                
@@ -52,21 +56,33 @@ include './header.php';
             </div>
             <div class="col-md-8">
                 <div class="tab-content profile-tab" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="row infos">
+                    
+                    <div class="row infos">
                             <div class="col-md-2">
-                                <label>User Id</label>
+                                <label>Nom :
+                                    <!-- <input type="text"<="nom" required="required" placeholder="Ex: <" /> -->
+                            </label>
                             </div>
                             <div class="col-md-6">
-                            <input id="floatingInput" name="identifiant" class="form-control" placeholder="">
+                            <input id="floatingInput" name="nom" class="form-control" required="required" value=<?php echo"'" . $adherent->nom ."'" ;?>>
+
                             </div>                           
+                        </div>
+
+                        <div class="row infos">
+                            <div class="col-md-2">
+                                <label>Prenom :</label>
+                            </div>
+                            <div class="col-md-6">
+                            <input id="floatingInput" name="prenom" class="form-control" value=<?php echo"'" . $adherent->prenom ."'" ;?>>                           
+                            </div>
                         </div>
                         <div class="row infos">
                             <div class="col-md-2">
-                                <label>Name</label>
+                                <label>Birthday :</label>
                             </div>
                             <div class="col-md-6">
-                            <input id="floatingInput" name="identifiant" class="form-control" placeholder="">                           
+                            <input id="floatingInput" type="date" name="birthday" class="form-control" value=<?php echo"'" . $adherent->birthday ."'" ;?>>                           
                             </div>
                         </div>
                         <div class="row infos">
@@ -74,80 +90,61 @@ include './header.php';
                                 <label>Email</label>
                             </div>
                             <div class="col-md-6">
-                            <input id="floatingInput" name="identifiant" class="form-control" placeholder="">                           
+                            <input id="floatingInput" name="mail" class="form-control" value=<?php echo"'" . $adherent->mail ."'" ;?>>                           
                             </div>
                         </div>
                         <div class="row infos">
                             <div class="col-md-2">
-                                <label>Phone</label>
+                                <label>numero</label>
                             </div>
                             <div class="col-md-6">
-                            <input id="floatingInput" name="identifiant" class="form-control" placeholder="">                           
+                            <input id="floatingInput" name="numero" class="form-control" value=<?php echo"'" . $adherent->numero ."'" ;?>>                           
                             </div>
                         </div>
                         <div class="row infos">
                             <div class="col-md-2">
-                                <label>Profession</label>
+                                <label>adresse :</label>
                             </div>
                             <div class="col-md-6">
-                            <input id="floatingInput" name="identifiant" class="form-control" placeholder="">                           
+                            <input id="floatingInput" name="adresse" class="form-control" value=<?php echo"'" . $adherent->adresse ."'" ;?>>                           
                             </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        </div> 
                         <div class="row infos">
-                            <div class="col-md-6">
-                                <label>Experience</label>
+                            <div class="col-md-2">
+                                <label>ville :</label>
                             </div>
                             <div class="col-md-6">
-                                <p>Expert</p>
+                            <input id="floatingInput" name="ville" class="form-control" value=<?php echo"'" . $adherent->ville ."'" ;?>>                           
                             </div>
                         </div>
                         <div class="row infos">
-                            <div class="col-md-6">
-                                <label>Hourly Rate</label>
+                            <div class="col-md-2">
+                                <label>Licence :</label>
                             </div>
                             <div class="col-md-6">
-                                <p>10$/hr</p>
+                            <input id="floatingInput" name="licence" class="form-control" value=<?php echo"'" . $adherent->licence ."'" ;?>>                           
                             </div>
                         </div>
                         <div class="row infos">
-                            <div class="col-md-6">
-                                <label>Total Projects</label>
+                            <div class="col-md-2">
+                                <label>Ligue :</label>  
                             </div>
                             <div class="col-md-6">
-                                <p>230</p>
+                            <input id="floatingInput" name="ligue" class="form-control" value=<?php echo"'" . $adherent->ligue ."'" ;?>>                           
                             </div>
                         </div>
-                        <div class="row infos">
-                            <div class="col-md-6">
-                                <label>English Level</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>Expert</p>
-                            </div>
-                        </div>
-                        <div class="row infos">
-                            <div class="col-md-6">
-                                <label>Availability</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>6 months</p>
-                            </div>
-                        </div>
-                        <div class="row infos">
-                            <div class="col-md-12">
-                                <label>Your Bio</label><br />
-                                <p>Your detail description</p>
-                            </div>
-                        </div>
-                        
-                    </div>
+
+                    
+                    
+                    
                 </div>
             </div>
         </div>
+        <button class="w-25 btn btn-lg btn-primary edit_btn  " type="submit">Enregistrer les modifications </button>
+
     </form>
     <?php
     echo '<a href="./deconnection.php" target="_self"> <input type="button" value="Deconnection"> </a>';
+}
     ?>
 </div>
