@@ -1,467 +1,201 @@
-<!DOCTYPE >
-<html>
+    <?php
+    session_start();
 
-<head>
-    <meta charset="UTF-8">
+    if (isset($_SESSION) && !empty($_SESSION)) {
+        $identifiant = $_SESSION['identifiant'];
 
-    <title>PPE</title>
+        $bdd = new PDO('mysql:host=localhost;dbname=m2l', 'root', '');
+        $requete = $bdd->prepare("SELECT * FROM `adherents` WHERE identifiant=:identifiant");
+        $requete->bindParam(':identifiant', $identifiant, PDO::PARAM_STR);
 
-
-    <link rel="stylesheet" href="./style.ndf.css" media="all">
-
-
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" type="text/css" href="./bootstrap.min.css">
-    
-
-</head>
+        $requete->execute();
+        $adherent = $requete->fetchObject();
+        include 'header.php';
+    };
+    ?>
 
 
-<form class="container" id="formulaire" [formGroup]="form" *ngIf="form">
-    <div id="identite" [formGroup]="form.get('globalInfos')">
-        <div class="input-group input-group-sm ">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sm">Nom :</span>
-            </div>
-            <input type="text" class="form-control" aria-label="Groupe d'input de petite taille" aria-describedby="inputGroup-sm" formControlName="name">
 
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sm">Prenom :</span>
-            </div>
-            <input type="text" class="form-control" aria-label="Groupe d'input de petite taille" aria-describedby="inputGroup-sm" formControlName="company">
-        </div>
+    <div class="container emp-profile">
+        <form action="./accueil.php">
+            <div class="row">
+                <div class="col-md-6 ">
+                    <h1 class="h3">Note de frais des bénévoles</h1>
 
-        <div class="input-group input-group-sm ">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sm">Adresse :</span>
-            </div>
-            <input type="text" class="form-control" aria-label="Groupe d'input de petite taille" aria-describedby="inputGroup-sm" formControlName="courseName">
-        </div>
-
-       
-    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="profile-head h3">
 
 
-   
 
+                        <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> -->
 
-    <figure class="wp-block-table">
-        <table class="eval" [formGroup]="form.get('evaluation')">
-            <thead>
-                <tr style="font-size: 0.7em; line-height: 1.6em;"></tr>
-                <td>
-                    <div class="eval_header">
-                        <p></p>
-                        <p class=" h5"> </p>
                     </div>
-                </td>
-                <td class=''></td>
-                <td class=''></td>
-                <td class=''></td>
-                <td class=''></td>
-            </thead>
+                </div>
+                <div class="col-md-2">
+                    <script>
+                        function confirmer() {
+                            var res = confirm("Êtes-vous sûr de vouloir quitter cette page ? \rToutes les données que vous avez inscrit ne seront pas enregistrées?");
+                            if (res) {
+                                // Mettez ici la logique de suppression
+                            }
+                        }
+                    </script>
+                    <input onclick="confirmer()" type="submit" class="profile-edit-btn" name="btnAddMore" value="annuler" />
+                </div>
+            </div>
+        </form>
+        <form action='./traitement_ndf.php' method="post">
 
-            <tbody>
-                <tr>
-                    <td class="claire"> </td>
-                    <td class="case rouge">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case orange">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case jaune">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case vert">
-                        <div>
-                            
-                        </div>
-                    </td>
-                </tr>
+            <div class="row">
+                <div class="col-md-8">
 
-                <tr>
-                    <td class="claire"></td>
-                    <td class="case rouge">
-                        <div>
-                            
+                    <div class="row infos">
+                        <div class="col-md-3">
+                            <label>Je sousigne :
+                            </label>
                         </div>
-                    </td>
-                    <td class="case orange">
-                        <div>
-                            
+                        <div class="col-md-6">
+                            <input id="floatingInput" name="nom" class="form-control" required="required" value='<?php echo$adherent->nom . " " . $adherent->prenom ; ?>'>
                         </div>
-                    </td>
-                    <td class="case jaune">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case vert">
-                        <div>
-                            
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="claire"></td>
-                    <td class="case rouge">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case orange">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case jaune">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case vert">
-                        <div>
-                            
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="claire"></td>
-                    <td class="case rouge">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case orange">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case jaune">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case vert">
-                        <div>
-                            
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="claire"></td>
-                    <td class="case rouge">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case orange">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case jaune">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case vert">
-                        <div>
-                            
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="claire"></td>
-                    <td class="case rouge">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case orange">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case jaune">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case vert">
-                        <div>
-                            
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="claire"></td>
-                    <td class="case rouge">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case orange">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case jaune">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case vert">
-                        <div>
-                            
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="claire"></td>
-                    <td class="case rouge">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case orange">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case jaune">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case vert">
-                        <div>
-                            
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="claire"></td>
-                    <td class="case rouge">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case orange">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case jaune">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case vert">
-                        <div>
-                            
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <table class="eval" [formGroup]="form.get('satisfaction')">
-            <thead>
-                <tr style="font-size: 0.7em; line-height: 1.6em;"></tr>
-                <td>
-                    <div class="eval_header">
-                        <p></p>
-                        <p class="text-black-50 h5"></p>
                     </div>
-                </td>
-                <td class='taille'></td>
-                <td class='taille'></td>
-                <td class='taille'></td>
-                <td class='taille'></td>
-            </thead>
+                    <div class="row infos">
+                        <div class="col-md-3">
+                            <label>Demeurant :
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <input id="floatingInput" name="nom" class="form-control" required="required" value='<?php echo$adherent->adresse; ?>'>
+                        </div>
+                    </div>
+                    <div class="row infos">
+                        <div class="col-md-3">
+                            <label>N° de licence :
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <input id="floatingInput" name="nom" class="form-control" required="required" value='<?php echo$adherent->licence ; ?>' readonly>
+                        </div>
+                    </div>
+                    <div class="row infos">
+                        <div class="col-md-10">
+                            <label>Certifie renoncer au remboursement des frais ci-dessous et les laisser à l'association :
+                            </label>
+                        </div>
 
-            <tbody>
+                        <div class="col-md-12">
+                            <input id="floatingInput" name="nom" class="form-control" required="required">
+                        </div>
+                        <div class="col-md-3">
+                            <label>en tant que don.
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row infos">
+                        <div class="col-md-4">
+                            <label>Frais de deplacement :
+                            </label>
+                        </div>
+                        <div class="col-md-8">
+                            <p> Tarif kilométrique appliqué pour le remboursement : 0.28 € </p>
 
-                <tr>
-                    <td class="claire"></td>
-                    <td class="case rouge">
-                        <div>
-                            
                         </div>
-                    </td>
-                    <td class="case orange">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case jaune">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case vert">
-                        <div>
-                            
-                        </div>
-                    </td>
-                </tr>
 
-                <tr>
-                    <td class="claire"></td>
-                    <td class="case rouge">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case orange">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case jaune">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case vert">
-                        <div>
-                            
-                        </div>
-                    </td>
-                </tr>
+                        <div class="col-md-12">
 
-                <tr>
-                    <td class="claire">
-                        
-                    </td>
-                    <td class="case rouge">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case orange">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case jaune">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case vert">
-                        <div>
-                            
-                        </div>
-                    </td>
-                </tr>
+                            <table class="table table-bordered">
+                                <!-- <thead>
+                                    <tr>
+                                        <th colspan="1">Date (jj/mm/aaaa)</th>
+                                        <th> Motif </th>
+                                        <th>Trajet</th>
+                                        <th>Kms Parcourus</th>
+                                        <th>Coût Trajet</th>
+                                        <th>Péages</th>
+                                        <th>Repas</th>
+                                        <th>Hébergement</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" name="date"  /></td>
+                                        <td><input type="text" name="motif" /></td>
+                                        <td><input type="text" name="trajet" /></td>
+                                        <td><input type="text" name="kms" /></td>
+                                        <td><input type="text" name="cout_trajet" /></td>
+                                        <td><input type="text" name="peage" /></td>
+                                        <td><input type="text" name="repas" /></td>
+                                        <td><input type="text" name="hebergement" /></td>
+                                    </tr>
+                                </tbody> -->
+                                <tr>
+                                    <th scope="row">Date (jj/mm/aaaa)</th>
+                                    <td><input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="date" /></td>
 
-                <tr>
-                    <td class="claire"></td>
-                    <td class="case rouge">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case orange">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case jaune">
-                        <div>
-                            
-                        </div>
-                    </td>
-                    <td class="case vert">
-                        <div>
-                            
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Motif</th>
+                                    <td><input type="text" name="motif" /></td>
 
-        <table class="eval">
-            <thead>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Trajet</th>
+                                    <td><input type="text" name="trajet" /></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Kms</th>
+                                    <td><input type="text" name="kms" /></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Coût trajet</th>
+                                    <td><input type="text" name="cout_trajet" /></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Péage</th>
+                                    <td><input type="text" name="peage" /></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Repas</th>
+                                    <td><input type="text" name="repas" /></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Hébergement</th>
+                                    <td><input type="text" name="hebergement" /></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Total</th>
+                                    <td><input type="text" name="total" /></td>
+                                </tr>
+                            </table>
 
-                <tr>
-                    <td colspan=11 class="thead" scop="row">
-                        <div class="eval_header ">
-                            <p class="h5"></p>
-                            <p class="text-black-50 h5"></p>
                         </div>
-                    </td>
-                </tr>
 
-            </thead>
-            <tbody>
-                <tr>
-                    <td type="bouton" [class.selected]="form.get('global').get('globalMark').value === 0" (click)="applyMark(0)" class="case claire">
-                    </td>
-                    <td type="bouton" [class.selected]="form.get('global').get('globalMark').value === 1" (click)="applyMark(1)" class="case claire">
-                    </td>
-                    <td type="bouton" [class.selected]="form.get('global').get('globalMark').value === 2" (click)="applyMark(2)" class="case claire">
-                    </td>
-                    <td type="bouton" [class.selected]="form.get('global').get('globalMark').value === 3" (click)="applyMark(3)" class="case claire">
-                    </td>
-                    <td type="bouton" [class.selected]="form.get('global').get('globalMark').value === 4" (click)="applyMark(4)" class="case claire">
-                    </td>
-                    <td type="bouton" [class.selected]="form.get('global').get('globalMark').value === 5" (click)="applyMark(5)" class="case claire">
-                    </td>
-                    <td type="bouton" [class.selected]="form.get('global').get('globalMark').value === 6" (click)="applyMark(6)" class="case claire">
-                    </td>
-                    <td type="bouton" [class.selected]="form.get('global').get('globalMark').value === 7" (click)="applyMark(7)" class="case claire">
-                    </td>
-                    <td type="bouton" [class.selected]="form.get('global').get('globalMark').value === 8" (click)="applyMark(8)" class="case claire">
-                    </td>
-                    <td type="bouton" [class.selected]="form.get('global').get('globalMark').value === 9" (click)="applyMark(9)" class="case claire">
-                    </td>
-                    <td type="bouton" [class.selected]="form.get('global').get('globalMark').value === 10" (click)="applyMark(10)" class="case claire">
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </figure>
+                    </div>
+                    <div class="input-group mb-3 col-md-8 text-right">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">A</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Le</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                        <div class="input-group mb-3" fxLayout="row" >
+                        <input class="mt-0" id="apparaitre" type="checkbox" [formControl]="form.get('commentairePublic')">
+                        <label style="margin: 0 0 0 15px;" for="apparaitre">Je certifie avoire verifier que les informations sont bonnes.</label>
+                    </div>
+                    <div>
 
-    <div id="comment">
-        <label class="comment " for="story"></label>
-        <br/>
-        <p>Commentaire :</p>
+                    </div>
+                </div>
 
-        <textarea class="container" [formControl]="form.get('global').get('feedBack')" id="" name="" rows="5" cols=150%></textarea>
+                <div id="ndf">
+                    <button class="w-100 btn btn-lg btn-primary ndf" type="submit">Valider</button>
+
+                </div>
+            </div>
+        </form>
+
     </div>
-
-    <div id="footer" fxLayout.lt-sm="column-reverse" fxLayout="row" fxLayoutAlign="space-between center">
-        <div class="thanks" fxFlex="70">
-            <p><br/>
-            
-            </p>
-
-           
-        </div>
-
-       
-
-    <div fxLayout="row" fxLayoutAlign="center center" class="bloc-validation">
-        <button type="button" class="btn btn-primary" [disabled]="form.invalid || loading" (click)="onSubmit()">
-      <mat-progress-spinner mode="indeterminate" [diameter]="20" *ngIf="loading">Envoyer</mat-progress-spinner>
-    </button>
-    </div>
-</form>
