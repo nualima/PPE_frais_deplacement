@@ -10,7 +10,6 @@
         <label for="floatingPassword">Mot de passe</label>
     </div>
     <div class="checkbox mb-3">
-        <!-- Pour l'instant inutil mais à voir si on peut le rendre fonctionnel  -->
         <label>
             <input type="checkbox" value="remember-me"> Se rappeler de moi
         </label>

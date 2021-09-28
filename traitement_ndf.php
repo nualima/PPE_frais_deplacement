@@ -12,10 +12,8 @@ if (!$_POST['identite'] || !$_POST['adresse'] || !$_POST['association']) {
 
 if ($info_complete == false) {
     echo '<p style="text:red;">veuillez remplir tout les champs obligatoire * </p>';
-    // header('Location: /note_de_frais.php');
-    var_dump($_POST['identite']);
-    var_dump($_POST['adresse']);
-    var_dump($_POST['association']);
+    header('Location: /not_de_frais.php?missing_info=true');
+    
 } else {
 
 
@@ -40,5 +38,5 @@ if ($info_complete == false) {
 
     $requete->execute();
 
-    header('Location: /accueil.php');
+    header('Location: /accueil.php?success=true');
 };

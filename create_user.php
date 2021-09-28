@@ -19,9 +19,6 @@ if (isset($_POST['identifiant'], $_POST['password']) && $_POST['identifiant'] !=
       $requete->bindParam(':identifiant', $_POST['identifiant'], PDO::PARAM_STR);
       $requete->bindParam(':pass', $_POST['password'], PDO::PARAM_STR);
       $res = $requete->execute();
-
-      var_dump($res);
-
       $_SESSION['pseudo'] = $_POST['identifiant'];
       header('Location: ./formulaire_renseignement.php');
     } else {

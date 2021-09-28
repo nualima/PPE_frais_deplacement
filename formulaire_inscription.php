@@ -16,37 +16,30 @@ include "./header.php"
 
 <div class="form_index">
     <form action='./create_user.php' method='POST'>
+        <div class="white">
+            <h1 class="h3 mb-3 fw-normal ">connectez-vous</h1>
+        </div>
 
-        <h1 class="h3 mb-3 fw-normal">connectez-vous</h1>
-
-        <div class="form-floating">
+        <div class="form-floating white">
             <label for="floatingInput">nom d'utilisateur :</label>
             <input id="floatingInput" name="identifiant" class="form-control" placeholder="pseudo">
 
         </div>
-        <div class="form-floating">
+        <div class="form-floating white">
             <label for="floatingPassword">Mot de passe :</label>
-            <!-- <input id="floatingPassword" type="password" name="password" class="form-control" placeholder="Password"> -->
             <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="required" onkeyup='check_pass();' />
 
 
         </div>
 
 
-        <div class="form-floating">
+        <div class="form-floating white">
             <label for="floatingPassword">confirmer le mot de passe :</label>
             <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Password" required="required" onkeyup='check_pass();' />
         </div>
 
-        <!--TODO 
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div> 
-        -->
-        <input type="submit" name="submit" class="w-100 btn btn-lg btn-primary" value="registration" id="submit" required="required" disabled />
 
-        <!-- <button class="w-100 btn btn-lg btn-primary" type="submit">se connecter </button> -->
+        <input type="submit" name="submit" class="w-100 btn btn-lg btn-primary" value="Se connecter" id="submit" required="required" disabled />
+
     </form>
 </div>

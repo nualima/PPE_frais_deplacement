@@ -1,11 +1,22 @@
 <?php 
     include './header.php';
+
+    
+
 ?>
 
 
 <div class="container emp-profile">
+
+    <div class="alert-danger">
+        <?php
+if (isset($_GET['missing_info'])){ echo "<div> Veuillez remplir tous les champs </div>"; }
+?>
+    </div>
+
     
     <form action="./traitement_formulaire.php" method="post">
+
         <div class="row">
             
             <div class="col-md-8">
@@ -14,7 +25,6 @@
                         <div class="row infos">
                             <div class="col-md-2">
                                 <label>Nom :
-                                    <!-- <input type="text" name="nom" required="required" placeholder="Ex: Gharbi" /> -->
                             </label>
                             </div>
                             <div class="col-md-6">
@@ -96,68 +106,7 @@
     </form>
     <?php
     echo '<a href="./deconnection.php" target="_self"> <input type="button" value="Deconnection"> </a>';
+
     ?>
+    
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <form action='traitement_formulaire.php' methode='POST'>
-    <p>
-        veuillez saisir les information suivantes:
-        </br></br>
-
-   
-
-    <p>prenom : <input type="text" name="prenom" required="required" placeholder="Ex: Redwan" /></p>
-
-    <p>Date de Naissance : <input type="date" name="birthday" required="required" value="<?php echo $today ?>">
-
-    <p>Adresse mail : <input type="text" name="mail" required="required"  placeholder="Ex: redwan@hotmail.com" /></p>
-
-    <p>Numéro de Téléphone : <input type="text" name="tel" required="required" placeholder="Ex: 0768716784" /></p>
-
-    <p>Adresse Complete : <input type="text" name="Adresse" required="required" /></p>
-
-    <p>Ville : <input type="text" name="Ville" required="required" placeholder="Ex: Nice" /></p>
-
-    <p>Numéro de licence : <input type="text" name="licence" required="required" /></p>
-
-    <p>Ligue Sportive : <input type="text" name="Ligue" required="required" /></p>
-
-    <input type="submit" name="valider" />
-
-    </p>
-</form> -->

@@ -12,13 +12,10 @@ if (!$_POST['nom'] || !$_POST['prenom'] || !$_POST['licence'] || !$_POST['mail']
 };
 
 if ($info_complete == false) {
-    header('Location: /formulaire_renseignement.php');
-    // header('Localtion: /error_page.php');
+    header('Location: /formulaire_renseignement.php?missing_info=true');
 } else {
 
-    //var_dump($_POST);
-    //var_dump($_SESSION);
-    
+  
     $requete = $bdd->prepare("UPDATE `adherents` SET nom=:nom, prenom=:prenom, birthday=:birthday, mail=:mail, numero=:numero, adresse=:adresse,
                              ville=:ville, licence=:licence, ligue=:ligue, validation=1 WHERE identifiant=:identifiant");
     $requete->bindParam(':identifiant', $_SESSION['identifiant'], PDO::PARAM_STR);
@@ -34,5 +31,5 @@ if ($info_complete == false) {
 
     $requete->execute();
 
-    header('Location: /accueil.php');
+    header('Location: /accueil.php?success=true');
 };

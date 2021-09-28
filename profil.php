@@ -1,23 +1,22 @@
-<?php
-?>
+
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
 <div class="container emp-profile">
+    <div class="alert-success">
+<?php
+if (isset($_GET['success'])){ echo "<div> Votre demande à bien été prit en compte. </div>"; }
+?>
+</div>
     <form action="./edit_profil.php" method="post">
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
-                    <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="" /> -->
                     <img src="profil_vide.jpg" alt="" />
 
-                    <!-- <div class="file btn btn-lg btn-primary">
-                        Change Photo
-                        <input type="file" name="file" />
-                    </div> -->
+                  
                 </div>
             </div>
             <div class="col-md-6">
@@ -29,7 +28,6 @@
                     <h6>
                         Web Developer and Designer
                     </h6>
-                    <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> -->
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
 
                     </ul>
@@ -75,7 +73,7 @@
             </div>
         
             <div id="ndf">
-                <<button class="w-100 btn btn-lg btn-warning ndf" type="submit">Note de Frais </button>
+                <button class="w-100 btn btn-lg btn-warning ndf" type="submit">Note de Frais </button>
 
             </div>
         </div>

@@ -1,3 +1,4 @@
+    
     <?php
     session_start();
 
@@ -16,8 +17,14 @@
 
 
 
-    <div class="container emp-profile">
-        <form action="./accueil.php">
+    <div class="container emp-profile">   
+        <div class="alert-danger">
+
+        <?php
+         if (isset($_GET['missing_info'])){ echo "<div> Veuillez remplir tous les champs </div>"; }
+         ?>
+        </div>
+        <form>
             <div class="row">
                 <div class="col-md-6 ">
                     <h1 class="h3">Note de frais des bénévoles</h1>
@@ -28,20 +35,20 @@
 
 
 
-                        <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> -->
 
                     </div>
                 </div>
                 <div class="col-md-2">
                     <script>
+
                         function confirmer() {
+                            event.preventDefault()
                             var res = confirm("Êtes-vous sûr de vouloir quitter cette page ? \rToutes les données que vous avez inscrit ne seront pas enregistrées?");
                             if (res) {
-                                // Mettez ici la logique de suppression
-                            }
+                                location.href = '/accueil.php';                            }
                         }
                     </script>
-                    <input onclick="confirmer()" type="submit" class="profile-edit-btn" name="btnAddMore" value="annuler" />
+                    <input onclick="confirmer(event)" type="submit" class="profile-edit-btn" name="btnAddMore" value="annuler" />
                 </div>
             </div>
         </form>
@@ -104,68 +111,44 @@
                         <div class="col-md-12">
 
                             <table class="table table-bordered">
-                                <!-- <thead>
-                                    <tr>
-                                        <th colspan="1">Date (jj/mm/aaaa)</th>
-                                        <th> Motif </th>
-                                        <th>Trajet</th>
-                                        <th>Kms Parcourus</th>
-                                        <th>Coût Trajet</th>
-                                        <th>Péages</th>
-                                        <th>Repas</th>
-                                        <th>Hébergement</th>
-                                        <th>Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><input type="text" name="date"  /></td>
-                                        <td><input type="text" name="motif" /></td>
-                                        <td><input type="text" name="trajet" /></td>
-                                        <td><input type="text" name="kms" /></td>
-                                        <td><input type="text" name="cout_trajet" /></td>
-                                        <td><input type="text" name="peage" /></td>
-                                        <td><input type="text" name="repas" /></td>
-                                        <td><input type="text" name="hebergement" /></td>
-                                    </tr>
-                                </tbody> -->
+                               
                                 <tr>
                                     <th scope="row">Date (jj/mm/aaaa)</th>
-                                    <td><input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="date_ndf" /></td>
+                                    <td><input type="date" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="date_ndf" /></td>
 
                                 </tr>
                                 <tr>
                                     <th scope="row">Motif</th>
-                                    <td><input type="text" name="motif" /></td>
+                                    <td><input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="motif" /></td>
 
                                 </tr>
                                 <tr>
                                     <th scope="row">Trajet</th>
-                                    <td><input type="text" name="trajet" /></td>
+                                    <td><input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="trajet" /></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">kms</th>
-                                    <td><input type="text" name="kilometre" /></td>
+                                    <td><input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="kilometre" /></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Coût trajet</th>
-                                    <td><input type="text" name="cout_trajet" /></td>
+                                    <td><input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="cout_trajet" /></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Péage</th>
-                                    <td><input type="text" name="peage" /></td>
+                                    <td><input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="peage" /></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Repas</th>
-                                    <td><input type="text" name="repas" /></td>
+                                    <td><input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="repas" /></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Hébergement</th>
-                                    <td><input type="text" name="hebergement" /></td>
+                                    <td><input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="hebergement" /></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Total</th>
-                                    <td><input type="text" name="total" /></td>
+                                    <td><input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="total" /></td>
                                 </tr>
                             </table>
 
