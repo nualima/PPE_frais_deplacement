@@ -52,20 +52,20 @@
 
                     <div class="row infos">
                         <div class="col-md-3">
-                            <label>Je sousigne :
+                            <label>Je sousigne : *
                             </label>
                         </div>
                         <div class="col-md-6">
-                            <input id="floatingInput" name="nom" class="form-control" required="required" value='<?php echo$adherent->nom . " " . $adherent->prenom ; ?>'>
+                            <input id="floatingInput" name="identite" class="form-control" required="required" value='<?php echo $adherent->nom . " " . $adherent->prenom; ?>'>
                         </div>
                     </div>
                     <div class="row infos">
                         <div class="col-md-3">
-                            <label>Demeurant :
+                            <label>Demeurant : *
                             </label>
                         </div>
                         <div class="col-md-6">
-                            <input id="floatingInput" name="nom" class="form-control" required="required" value='<?php echo$adherent->adresse; ?>'>
+                            <input id="floatingInput" name="adresse" class="form-control" required="required" value='<?php echo $adherent->adresse; ?>'>
                         </div>
                     </div>
                     <div class="row infos">
@@ -74,17 +74,17 @@
                             </label>
                         </div>
                         <div class="col-md-6">
-                            <input id="floatingInput" name="nom" class="form-control" required="required" value='<?php echo$adherent->licence ; ?>' readonly>
+                            <input id="floatingInput" name="id_licence" class="form-control" required="required" value='<?php echo $adherent->licence; ?>' readonly>
                         </div>
                     </div>
                     <div class="row infos">
-                        <div class="col-md-10">
-                            <label>Certifie renoncer au remboursement des frais ci-dessous et les laisser à l'association :
+                        <div class="col-md-12  ">
+                            <label>Certifie renoncer au remboursement des frais ci-dessous et les laisser à l'association :*
                             </label>
                         </div>
 
                         <div class="col-md-12">
-                            <input id="floatingInput" name="nom" class="form-control" required="required">
+                            <input id="floatingInput" name="association" class="form-control" required="required">
                         </div>
                         <div class="col-md-3">
                             <label>en tant que don.
@@ -131,7 +131,7 @@
                                 </tbody> -->
                                 <tr>
                                     <th scope="row">Date (jj/mm/aaaa)</th>
-                                    <td><input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="date" /></td>
+                                    <td><input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="date_ndf" /></td>
 
                                 </tr>
                                 <tr>
@@ -144,8 +144,8 @@
                                     <td><input type="text" name="trajet" /></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Kms</th>
-                                    <td><input type="text" name="kms" /></td>
+                                    <th scope="row">kms</th>
+                                    <td><input type="text" name="kilometre" /></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Coût trajet</th>
@@ -176,14 +176,14 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-sm">A</span>
                         </div>
-                        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        <input type="text" name="lieu_signature" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-sm">Le</span>
                         </div>
-                        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        <input type="text" name="date_signature" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
                     </div>
-                        <div class="input-group mb-3" fxLayout="row" >
-                        <input class="mt-0" id="apparaitre" type="checkbox" [formControl]="form.get('commentairePublic')">
+                    <div class="input-group mb-3" fxLayout="row">
+                        <input class="mt-0" id="apparaitre" type="checkbox" name="signature" [formControl]="form.get('commentairePublic')">
                         <label style="margin: 0 0 0 15px;" for="apparaitre">Je certifie avoire verifier que les informations sont bonnes.</label>
                     </div>
                     <div>
