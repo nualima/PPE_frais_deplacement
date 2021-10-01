@@ -5,7 +5,7 @@ session_start();
 
 if (isset($_POST['identifiant'], $_POST['password'])) {
 
-    $bdd = new PDO('mysql:host=localhost;dbname=m2l', 'root', '');
+    $bdd = new PDO('mysql:host=localhost;dbname=m2l', 'redwan', 'zjyLzL9JY');
     $requete = $bdd->prepare("SELECT * FROM `adherents` WHERE identifiant=:identifiant AND password=:password ");
     $requete->bindParam(':identifiant', $_POST['identifiant'], PDO::PARAM_STR);
     $requete->bindParam(':password', $_POST['password'], PDO::PARAM_STR);

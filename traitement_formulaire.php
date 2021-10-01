@@ -3,7 +3,7 @@
 session_start();
 
 
-$bdd = new PDO('mysql:host=localhost;dbname=m2l', 'root', '');
+$bdd = new PDO('mysql:host=localhost;dbname=m2l', 'redwan', 'zjyLzL9JY');
 
 $info_complete = true;
 
