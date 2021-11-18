@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_POST['identifiant'], $_POST['password']) && $_POST['identifiant'] !== '' && $_POST['password'] !== '') {
-  $bdd = new PDO('mysql:host=localhost;dbname=m2l', 'redwan', 'zjyLzL9JY');
+  $bdd = new PDO('mysql:host=localhost:3306;dbname=ppe1_groupe2', 'redwan', 'zjyLzL9JY');
   $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
   //if($_POST['password'] !== $PO) {

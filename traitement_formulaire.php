@@ -3,7 +3,7 @@
 session_start();
 
 
-$bdd = new PDO('mysql:host=localhost;dbname=m2l', 'redwan', 'zjyLzL9JY');
+$bdd = new PDO('mysql:host=localhost:3306;dbname=ppe1_groupe2', 'redwan', 'zjyLzL9JY');
 
 $info_complete = true;
 
@@ -31,5 +31,5 @@ if ($info_complete == false) {
 
     $requete->execute();
 
-    header('Location: /accueil.php?success=true');
+    header('Location: ./accueil.php?success=true');
 };

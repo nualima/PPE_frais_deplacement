@@ -5,7 +5,7 @@
     if (isset($_SESSION) && !empty($_SESSION)) {
         $identifiant = $_SESSION['identifiant'];
 
-        $bdd = new PDO('mysql:host=localhost;dbname=m2l', 'redwan', 'zjyLzL9JY');
+        $bdd = new PDO('mysql:host=localhost:3306;dbname=ppe1_groupe2', 'redwan', 'zjyLzL9JY');
         $requete = $bdd->prepare("SELECT * FROM `adherents` WHERE identifiant=:identifiant");
         $requete->bindParam(':identifiant', $identifiant, PDO::PARAM_STR);
 
@@ -45,7 +45,7 @@
                             event.preventDefault()
                             var res = confirm("Êtes-vous sûr de vouloir quitter cette page ? \rToutes les données que vous avez inscrit ne seront pas enregistrées?");
                             if (res) {
-                                location.href = '/accueil.php';                            }
+                                location.href = 'accueil.php';                            }
                         }
                     </script>
                     <input onclick="confirmer(event)" type="submit" class="profile-edit-btn" name="btnAddMore" value="annuler" />
